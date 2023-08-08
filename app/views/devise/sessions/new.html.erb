@@ -1,5 +1,9 @@
 <div class="session-header">
-  <div class="back"><%= link_to '<', root_path %></div>
+  <div class="back">
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
   <h2>LOGIN</h2>
   <div></div>
 </div>
