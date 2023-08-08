@@ -1,6 +1,8 @@
 <h2>Transactions</h2>
 <h3><%= @category.name %></h3>
 
+<button><%= link_to '<', categories_path(@category.id) %></button>
+
 <p>TOTAL PAYMENT</p>
 <p>$<%= @category.purchases.sum('amount')%></p>
 <br />

@@ -1,0 +1,37 @@
+<h3>new transaction</h3>
+<p>for <%= @selected_category.name %></p>
+
+<% if @purchase.errors.any? %>
+   <div class="text-red-500 text-center">
+    <p><%= pluralize(@purchase.errors.count, "error") %> found:</p>
+
+    <ul class="text-bold">
+      <% @purchase.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    </div>
+<% end %>
+
+<%= form_with model: @purchase, url: category_purchases_path,  method: :post do | form |%>
+  <div>
+    <%= form.text_field :name, placeholder: 'Name', required: true%>
+
+    <%= form.number_field :amount, placeholder: 'Amount', required: true%> <br />
+
+    <p>Select Categories to add this transaction to:</p>
+    <% @categories.each do |category| %>
+      <% if category.id == @selected_category.id %>
+        <%= hidden_field_tag 'category_ids[]', category.id %>
+        <%= check_box_tag 'category_ids[]', category.id, true, disabled: true %>
+      <% else %>
+        <%= check_box_tag 'category_ids[]', category.id %>
+      <% end %>
+      <%= category.name %><br>
+    <% end %>
+
+    
+
+    <button><%= form.submit "Save Transaction"%></button>
+  </div>
+<% end %>
