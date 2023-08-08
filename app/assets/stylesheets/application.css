@@ -32,6 +32,10 @@ body {
   padding: 0;
 }
 
+#error_explanation {
+  color: red;
+}
+
 .cat {
   width: 3rem;
   height: 3rem;
