@@ -151,12 +151,19 @@ REGISTER
 CATEGORIES
 */
 
+.page-div {
+  position: relative;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
 .page-header-section {
   display: flex;
   flex-direction: column;
   background-color: var(--color-blue);
   color: white;
   padding: 0.3rem;
+  height: 10vh;
 }
 
 .page-header {
@@ -172,18 +179,18 @@ CATEGORIES
   padding: 0.4rem;
 }
 
+.page-mid-section {
+  height: 80vh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
 .cat-item {
   list-style: none;
   border-bottom: 1px solid #cac6c6;
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
-}
-
-.try:last-child {
-  margin-bottom: 3rem;
-  padding: 4rem;
-  background-color: blue;
 }
 
 .cat-img-box {
@@ -208,10 +215,11 @@ CATEGORIES
   margin-left: auto;
 }
 
-.page-div {
-  position: relative;
-  height: 100vh;
-  overflow-x: hidden;
+.meee {
+  background-color: red;
+  margin-bottom: 1rem;
+  width: 100vw;
+  height: 7rem;
 }
 
 .add-container {
@@ -240,3 +248,11 @@ CATEGORIES
   color: white;
 }
 
+/*
+TRANSACTIONS
+*/
+
+.detail-header {
+  text-align: center;
+  margin-top: 0.5rem;
+}

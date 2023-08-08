@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.where(author_id: current_user.id, id: params[:id]).includes([:author])[0]
-    @purchases = @category.purchases
+    @purchases = @category.purchases.order(created_at: :desc)
   end
 
   def create
