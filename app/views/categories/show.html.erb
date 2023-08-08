@@ -1,0 +1,15 @@
+<h2>Transactions</h2>
+<h3><%= @category.name %></h3>
+
+<p>TOTAL PAYMENT</p>
+<p>$<%= @category.purchases.sum('amount')%></p>
+<br />
+
+<% @category.purchases.each do |item| %>
+  <p><%= item.name %></p>
+  <p>$<%= item.amount %></p>
+  <p><%= item.created_at.strftime('%d-%b-%Y') %> <p>
+  <br />
+<% end %>
+
+<button><%= link_to 'Add New Transaction', new_category_purchase_path(@category.id) %></button>

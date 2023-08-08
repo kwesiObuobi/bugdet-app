@@ -1,1 +1,19 @@
 <h3>Categories page</h3>
+<% if user_signed_in? %>
+  <div> <%= button_to "Log out", '/users/sign_out', method: :delete %> </div>
+<%end%>
+
+<% @categories.each do |category| %>
+  <%= link_to "/categories/#{category.id}" do %>
+    <li> 
+      <img class="cat" src=<%= category.icon %> alt=<%= category.name %> >
+      <div>
+        <p><%= category.name.capitalize %> <p>
+        <p><%= category.created_at.strftime('%d-%b-%Y') %> <p>
+        <p>$<%= category.purchases.sum('amount') %> <p>
+      </div>
+    </li>
+  <%end%>
+<% end %>
+
+<button><%= link_to 'Add New Category', new_category_path %></button>

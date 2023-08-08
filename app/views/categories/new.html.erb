@@ -1,0 +1,20 @@
+<% if @category.errors.any? %>
+  <div>
+    <p><%= pluralize(@category.errors.count, "error") %> found:</p>
+
+    <ul>
+      <% @category.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @category, url: categories_path,  method: :post do | form |%>
+  <div class="flex flex-col w-screen pt-3 gap-1">
+  <%= form.text_field :name, placeholder: 'Name', required: true%>
+
+  <%= form.text_field :icon, placeholder: 'icon URL', required: true %>
+  <span class="pt-6 mx-auto"><%= form.submit 'Save'%></span>
+  </div>
+<% end %>
