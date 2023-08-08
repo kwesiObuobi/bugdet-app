@@ -21,6 +21,10 @@
   --color-gray: #434b54;
 }
 
+body {
+  position: relative;
+}
+
 * {
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
@@ -33,6 +37,26 @@
   height: 3rem;
 }
 
+.alert {
+  color: red;
+}
+
+.notice {
+  color: green;
+}
+
+.session-field {
+  width: 100%;
+  padding: 0.5rem;
+  border: none;
+}
+
+.session-field-input {
+  border: solid 1px rgba(176, 188, 176, 0.4);
+  width: 100%;
+  padding: 0.5rem;
+}
+
 /*
 SPLASH SCREEN
 */
@@ -40,6 +64,8 @@ SPLASH SCREEN
 .splash__container {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .splash__title {
@@ -72,4 +98,49 @@ SPLASH SCREEN
   color: white;
   background-color: var(--color-blue);
   border-radius: 0.5rem;
+}
+
+/*
+LOGIN
+*/
+
+.txtactions {
+  position: absolute;
+  top: calc((100vh * 0.06) * 0.2);
+  right: 0.5rem;
+  background: transparent;
+  border: solid 1px white;
+  padding: 0.1rem;
+  border-radius: 4px;
+}
+
+.txtactions > * {
+  background: transparent;
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  border: none;
+  outline: none;
+}
+
+.session-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-blue);
+  color: white;
+  padding: 0.5rem;
+  height: calc(100vh * 0.06);
+}
+
+.session-header h2 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.back,
+.back > * {
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
 }
