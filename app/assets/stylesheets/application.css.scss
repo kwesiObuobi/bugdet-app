@@ -191,6 +191,7 @@ CATEGORIES
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
+  color: var(--color-gray)
 }
 
 .cat-img-box {
@@ -213,13 +214,6 @@ CATEGORIES
 
 .cat-sum {
   margin-left: auto;
-}
-
-.meee {
-  background-color: red;
-  margin-bottom: 1rem;
-  width: 100vw;
-  height: 7rem;
 }
 
 .add-container {
@@ -249,10 +243,51 @@ CATEGORIES
 }
 
 /*
+ADD CATEGORY
+*/
+
+.save-btn {
+  width: 95%;
+  padding: 0.5rem;
+  background-color: var(--color-green);
+  border-radius: 4px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.save-btn:hover {
+  cursor: pointer;
+}
+
+.save-btn > * {
+  color: white;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/*
 TRANSACTIONS
 */
 
 .detail-header {
   text-align: center;
   margin-top: 0.5rem;
+}
+
+/*
+ADD TRANSACTIONS
+*/
+
+.trans-p {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.trans-checks {
+  width: 95%;
+  margin: 0 auto 1rem;
+  padding: 0.5rem;
 }
