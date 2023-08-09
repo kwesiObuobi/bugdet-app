@@ -57,7 +57,7 @@
 
 ## Video Presentation <a name="video"></a>
 
--[Presentation Video](https://www.loom.com/share/f2ea7c772fa54cf1ac421bb483b310f1?sid=c2b74cea-5dd4-477b-a214-e2e096127c99)
+- [Presentation Video](https://www.loom.com/share/f2ea7c772fa54cf1ac421bb483b310f1?sid=c2b74cea-5dd4-477b-a214-e2e096127c99)
 
 
 <!-- GETTING STARTED -->
