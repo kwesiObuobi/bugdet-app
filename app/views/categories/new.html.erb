@@ -1,0 +1,45 @@
+<div class="page-div">
+
+  <section class="page-header-section">
+    <div class="page-header">
+      <div class="back">
+        <%= link_to categories_path do %>
+          <i class="fa-solid fa-arrow-left"></i>
+        <% end %>
+      </div>
+      <div class="heading">NEW CATEGORY</div>
+      <div></div>
+    </div>
+  </section>
+
+  <div class="page-mid-section">
+    <% if @category.errors.any? %>
+      <div>
+        <p><%= pluralize(@category.errors.count, "error") %> found:</p>
+
+        <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with model: @category, url: categories_path,  method: :post do | form |%>
+    <div>
+
+      <div class="session-field">  
+        <%= form.text_field :name, placeholder: 'Name', required: true, class: "session-field-input" %>
+      </div>
+
+      <div class="session-field">
+        <%= form.text_field :icon, placeholder: 'icon URL', required: true, class: "session-field-input" %>
+      </div>
+
+      <div class="save-btn"><%= form.submit 'Save'%></div>
+    </div>
+    <% end %>
+  </div>
+
+</div>
+

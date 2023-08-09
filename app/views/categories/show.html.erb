@@ -1,0 +1,42 @@
+<div class="page-div">
+
+  <section class="page-header-section">
+    <div class="page-header">
+      <div class="back">
+        <%= link_to categories_path(@category.id) do %>
+          <i class="fa-solid fa-arrow-left"></i>
+        <% end %>
+      </div>
+      <div class="heading">DETAILS</div>
+      <div></div>
+    </div>
+
+    <p class="detail-header"><%= @category.name %>: $<%= @category.purchases.sum('amount')%></p>
+  </section>
+
+  
+  <% if @purchases.length.positive? %>
+    <div class="page-mid-section">
+      <% @purchases.each do |item| %>
+        <div>
+          <div class="cat-item">
+            <div class="cat-info">
+              <p class="cat-name"><%= item.name.capitalize %> <p>
+              <small class="cat-date"><%= item.created_at.strftime('%d-%b-%Y') %></small>
+            </div>
+            <div class="cat-sum">
+              <p>$<%= item.amount %><p>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+  <% else %>
+    <p>No Transactions recorded.</p>
+  <% end %>
+
+  <div class="add-container">
+    <button><%= link_to 'Add New Transaction', new_category_purchase_path(@category.id) %></button>
+  </div>
+
+</div>

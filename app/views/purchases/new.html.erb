@@ -1,0 +1,57 @@
+<div class="page-div">
+
+  <section class="page-header-section">
+    <div class="page-header">
+      <div class="back">
+        <%= link_to categories_path do %>
+          <i class="fa-solid fa-arrow-left"></i>
+        <% end %>
+      </div>
+      <div class="heading">NEW TRANSACTION</div>
+      <div></div>
+    </div>
+    <p class="detail-header">( for: <%= @selected_category.name %> )</p>
+  </section>
+
+  <div class="page-mid-section">
+  
+    <% if @purchase.errors.any? %>
+      <div>
+        <p><%= pluralize(@purchase.errors.count, "error") %> found:</p>
+
+        <ul>
+          <% @purchase.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= form_with model: @purchase, url: category_purchases_path,  method: :post do | form |%>
+      <div>
+        <div class="session-field">
+          <%= form.text_field :name, placeholder: 'Name', required: true, class: "session-field-input" %>
+        </div>
+
+        <div class="session-field">
+          <%= form.number_field :amount, placeholder: 'Amount', required: true, class: "session-field-input" %> <br />
+        </div>
+
+        <p class="trans-p">Select Categories to add this transaction to:</p>
+        <div class="trans-checks">
+          <% @categories.each do |category| %>
+            <% if category.id == @selected_category.id %>
+              <%= hidden_field_tag 'category_ids[]', category.id %>
+              <%= check_box_tag 'category_ids[]', category.id, true, disabled: true %>
+            <% else %>
+              <%= check_box_tag 'category_ids[]', category.id %>
+            <% end %>
+            <%= category.name %><br>
+          <% end %>
+        </div>
+
+        <button class="save-btn"><%= form.submit "Save Transaction"%></button>
+      </div>
+    <% end %>
+  </div>
+</div>

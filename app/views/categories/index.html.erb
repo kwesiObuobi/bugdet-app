@@ -1,0 +1,43 @@
+<div class="page-div">
+
+
+  <section class="page-header-section">
+    <div class="page-header">
+      <div class="bars"><i class="fa-solid fa-bars"></i></div>
+      <div class="heading">CATEGORIES</div>
+      <div class="search"><i class="fa-solid fa-magnifying-glass"></i></div>
+    </div>
+
+    <% if user_signed_in? %>
+      <div class="sign-out-btn"> <%= button_to "Log out", '/users/sign_out', method: :delete %> </div>
+    <%end%>
+  </section>
+
+  <% if @categories.length.positive? %>
+    <div class="page-mid-section">
+      <% @categories.each do |category| %>
+        <%= link_to "/categories/#{category.id}" do %>
+          <div class="cat-item">
+            <div class="cat-img-box">
+              <img class="cat-img" src=<%= category.icon %> alt=<%= category.name %> >
+            </div>
+            <div class="cat-info">
+              <p class="cat-name"><%= category.name.capitalize %> <p>
+              <small class="cat-date"><%= category.created_at.strftime('%d-%b-%Y') %></small>
+            </div>
+            <div class="cat-sum">
+              <p>$<%= category.purchases.sum('amount') %> <p>
+            </div>
+          </div>
+        <%end%>
+      <% end %>
+    </div>
+  <% else %>
+    <p>No Categories created.</p>
+  <% end %>
+
+  <div class="add-container">
+    <button><%= link_to 'ADD NEW CATEGORY', new_category_path %></button>
+  </div>
+
+</div>

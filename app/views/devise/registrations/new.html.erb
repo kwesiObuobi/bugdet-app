@@ -1,0 +1,38 @@
+<div class="session-header">
+  <div class="back">
+    <%= link_to root_path do %>
+      <i class="fa-solid fa-arrow-left"></i>
+    <% end %>
+  </div>
+  <h2>REGISTER</h2>
+  <div></div>
+</div>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="session-field">
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", placeholder: "Full name", class: "session-field-input" %>
+  </div>
+
+  <div class="session-field">
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", class: "session-field-input" %>
+  </div>
+
+  <div class="session-field">
+    <% if @minimum_password_length %>
+    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "Password", class: "session-field-input" %>
+  </div>
+
+  <div class="session-field">
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "Confirm Password", class: "session-field-input" %>
+  </div>
+
+  <div class="txtactions">
+    <%= f.submit "Next" %>
+  </div>
+<% end %>
+
+
