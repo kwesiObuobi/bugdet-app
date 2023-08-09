@@ -191,7 +191,7 @@ CATEGORIES
   display: flex;
   gap: 0.5rem;
   padding: 0.5rem;
-  color: var(--color-gray)
+  color: var(--color-gray);
 }
 
 .cat-img-box {
@@ -238,10 +238,6 @@ CATEGORIES
   border: solid 1px white;
 }
 
-.add-container button > * {
-  color: white;
-}
-
 /*
 ADD CATEGORY
 */
@@ -266,6 +262,10 @@ ADD CATEGORY
   background: transparent;
   border: none;
   outline: none;
+}
+
+.add-container button > * {
+  color: white;
 }
 
 /*
