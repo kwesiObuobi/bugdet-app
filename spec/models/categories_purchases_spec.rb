@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 describe CategoriesPurchases, type: :model do
-
   sam = User.new(name: 'Sam', email: 'sam@gmail.com', password: 'abcdefgh', password_confirmation: 'abcdefgh')
   category = Category.new(author: sam, name: 'Gifts', icon: 'https://icon.png')
   purchase = Purchase.new(author: sam, name: 'Gifts', amount: 100)

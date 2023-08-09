@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
-    if current_user
-      redirect_to '/categories'
-    end
+    return unless current_user
+
+    redirect_to '/categories'
   end
 end

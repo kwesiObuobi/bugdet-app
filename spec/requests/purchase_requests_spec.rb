@@ -4,7 +4,7 @@ describe PurchasesController, type: :request do
   before(:each) do
     @user = User.create(name: 'Sam', email: 'sam@gmail.com', password: 'abcdefgh', password_confirmation: 'abcdefgh')
     @category = Category.create(author: @user, name: 'Gifts', icon: 'https://icon.png')
-    @purchase = Purchase.new(author: @user, name: 'Car', amount: 10000)
+    @purchase = Purchase.new(author: @user, name: 'Car', amount: 10_000)
   end
 
   describe 'authenticated user pages' do
@@ -17,7 +17,6 @@ describe PurchasesController, type: :request do
       expect(response).to be_successful
       expect(response.status).to eq(200)
       expect(response).to render_template('purchases/new')
-      
     end
 
     it 'should render the details of the page' do
